@@ -1,0 +1,30 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> <suite name="Suite" parallel="false"> 
+	<test name="Test"> <classes> <class name="com.tr.testng.WebTour"/> </classes> 
+	</test> </suite> -->
+
+
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="My test suite">
+	<parameter name="URL" value="http://127.0.0.1:1080/WebTours/" />
+	<parameter name="TITLE" value="Web Tours" />
+	<parameter name="NAME" value="tr" />
+	<parameter name="PWD" value="123123" />
+	<parameter name="PROPERTY_KEY" value="webdriver.firefox.marionette" />
+	<parameter name="PROPERTY_VALUE" value="f:\\geckodriver.exe" />
+	<parameter name="FIRSTNAME" value="tang" />
+	<parameter name="LASTNAME" value="rui" />
+	<parameter name="CREADIT" value="2015020800117" />
+	<parameter name="STORAGEURL" value="F:/invoice.jpg" />
+
+	<test name="WebTours" preserve-order="true">
+		<classes>
+			<class name="com.tr.testng.WebTour">
+				<methods>
+					<include name="testTitleAndOutPutLink" />
+					<include name="testServices" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+	

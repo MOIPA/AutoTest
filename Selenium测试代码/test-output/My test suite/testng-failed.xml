@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [My test suite]">
+  <parameter name="STORAGEURL" value="F:/invoice.jpg"/>
+  <parameter name="LASTNAME" value="rui"/>
+  <parameter name="TITLE" value="Web Tours"/>
+  <parameter name="FIRSTNAME" value="tang"/>
+  <parameter name="PROPERTY_VALUE" value="f:\\geckodriver.exe"/>
+  <parameter name="PWD" value="123123"/>
+  <parameter name="CREADIT" value="2015020800117"/>
+  <parameter name="URL" value="http://127.0.0.1:1080/WebTours/"/>
+  <parameter name="PROPERTY_KEY" value="webdriver.firefox.marionette"/>
+  <parameter name="NAME" value="tr"/>
+  <test name="WebTours(failed)">
+    <classes>
+      <class name="com.tr.testng.WebTour">
+        <methods>
+          <include name="testServices" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.tr.testng.WebTour -->
+    </classes>
+  </test> <!-- WebTours(failed) -->
+</suite> <!-- Failed suite [My test suite] -->
