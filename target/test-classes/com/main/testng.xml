@@ -2,6 +2,7 @@
 <suite name="Suite1" preserve-order="true">
     <parameter name="account" value="18952448323"/>
     <parameter name="password" value="123456ab"/>
+    <parameter name="loggedName" value="唐锐"/>
     <parameter name="employeeName" value="trTest"/>
     <parameter name="employeeSex" value="male"/>
     <parameter name="employeeEmail" value="test@test5.com"/>
@@ -15,7 +16,8 @@
             <run>
                 <include name="BasicOperationTest.init"/>
                 <include name="BasicOperation.logIn"/>
-                <include name="EnterpriseManagement"/>
+                <include name="EnterpriseManagement.init"/>
+                <include name="EnterpriseManagement.AddEmployee"/>
                 <!--<include name="BasicOperationTest.destroy"/>-->
             </run>
         </groups>
@@ -23,7 +25,7 @@
             <package name="com.main.*"/>
         </packages>
         <!--<classes>-->
-            <!--<class name="com.main.EnterpriseManagementTest"/>-->
+            <!--<class name="com.main.testcase.EnterpriseManagementTest"/>-->
         <!--</classes>-->
     </test>
 </suite>

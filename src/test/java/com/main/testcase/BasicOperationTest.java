@@ -1,5 +1,7 @@
-package com.main;
+package com.main.testcase;
 
+import com.main.uienum.UIPathBasicEnum;
+import com.main.driver.ChromeDriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-//@Test()
+@Test()
 public class BasicOperationTest {
 
     private WebDriver driver;
@@ -16,8 +18,6 @@ public class BasicOperationTest {
     @Test(groups = {"BasicOperationTest.init"})
     public void init() {
 //        System.out.println("init driver");
-//        System.setProperty("webdriver.chrome.driver", "D:\\Doc--GitRepo\\Java\\test\\src\\main\\resources\\chromedriver.exe");
-//        driver = new ChromeDriver();
         driver = ChromeDriverSingleton.getInstance();
     }
 
@@ -28,15 +28,15 @@ public class BasicOperationTest {
 //    }
 
     @Test(groups = {"BasicOperation.logIn"},dependsOnGroups = {"BasicOperationTest.init"})
-    @Parameters({"account","password"})
-    public void logIn(String account,String password) {
+    @Parameters({"account","password","loggedName"})
+    public void logIn(String account,String password,String loggedName) {
         driver.get("https://192.168.0.100:3999/login");
-        ((ChromeDriver) driver).findElementByXPath("//*[@id=\"login-container\"]/div/div[2]/div[1]/form/div[1]/div/div/input").sendKeys(account);
-        ((ChromeDriver) driver).findElementByXPath("//*[@id=\"login-container\"]/div/div[2]/div[1]/form/div[2]/div/div/input").sendKeys(password);
-        driver.findElement(By.xpath("//*[@id=\"login-container\"]/div/div[2]/div[1]/form/div[4]/div/button")).click();
+        ((ChromeDriver) driver).findElementByXPath(UIPathBasicEnum.getPath("login_name")).sendKeys(account);
+        ((ChromeDriver) driver).findElementByXPath(UIPathBasicEnum.getPath("login_pwd")).sendKeys(password);
+        driver.findElement(By.xpath(UIPathBasicEnum.getPath("login_confirm"))).click();
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-        String text = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[1]/div/div/div[2]/div[1]")).getText();
-        Assert.assertEquals(text, "唐锐");
+        String text = driver.findElement(By.xpath(UIPathBasicEnum.getPath("logged_name"))).getText();
+        Assert.assertEquals(text, loggedName);
 //        driver.close();
     }
 
