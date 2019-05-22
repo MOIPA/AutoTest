@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite1" preserve-order="true">
-    <parameter name="account" value="18952448323"/>
-    <parameter name="password" value="123456ab"/>
-    <parameter name="loggedName" value="唐锐"/>
-    <parameter name="employeeName" value="trTest"/>
-    <parameter name="employeeSex" value="male"/>
-    <parameter name="employeeEmail" value="test@test5.com"/>
-    <parameter name="employeePassword" value="123456ab"/>
-    <parameter name="employeePhone" value="18952338115"/>
-    <parameter name="employeeBrief" value="brief123123123123"/>
-    <parameter name="employeePosition" value="test"/>
     <!--@Parameters({"employeeName","employeeSex","employeeEmail","employeePassword","employeePhone","employeeBrief","employeePosition"})-->
     <test name="EnterpriseManagementTest" preserve-order="true">
         <groups>

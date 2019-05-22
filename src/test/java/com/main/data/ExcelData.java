@@ -11,7 +11,6 @@ import java.util.HashMap;
 public class ExcelData {
 
     /**
-     *
      * @param sheetName 表名
      * @param fileName  文件名
      * @return
@@ -24,18 +23,14 @@ public class ExcelData {
         int rows = sheet.getRows();
         int columns = sheet.getColumns();
         // data storage
-//        HashMap<String, String>[][] data = new HashMap[rows - 1][columns];
-        String[][] data = new String[rows - 1][columns];
+         HashMap<String, String>[][] data = new HashMap[rows - 1][1];
         // init haspmap
-        if(rows<=1) return null;
+        if (rows <= 1) return null;
         for (int i = 1; i < rows; i++) {
+            // init data
+            data[i-1][0] = new HashMap<>();
             for (int j = 0; j < columns; j++) {
-                // init data
-//                data[i-1][j] = new HashMap<>();
-                data[i-1][j] = "";
-                //get the content of first line
-//                data[i-1][j].put(sheet.getCell(j, 0).getContents(), sheet.getCell(j, i).getContents());
-                data[i-1][j] = (sheet.getCell(j, i).getContents());
+                data[i - 1][0].put(sheet.getCell(j, 0).getContents(), sheet.getCell(j, i).getContents());
             }
         }
         return data;
@@ -43,11 +38,12 @@ public class ExcelData {
 
     /**
      * Get the path of data excel
+     *
      * @return
      * @throws java.io.IOException
      */
     private String getPath(String fileName) throws IOException {
         File file = new File(".");
-        return file.getCanonicalPath()+"\\src\\main\\resources\\"+fileName;
+        return file.getCanonicalPath() + "\\src\\main\\resources\\" + fileName;
     }
 }
