@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite1" preserve-order="true">
+    <parameter name="sheetName" value="stage"/>
+    <parameter name="fileName" value="test_data.xls"/>
     <!--@Parameters({"employeeName","employeeSex","employeeEmail","employeePassword","employeePhone","employeeBrief","employeePosition"})-->
-    <test name="EnterpriseManagementTest" preserve-order="true">
+    <test name="ActionLogin" preserve-order="true">
         <groups>
             <run>
-                <include name="BasicOperationTest.init"/>
-                <include name="BasicOperation.logIn"/>
-                <include name="EnterpriseManagement.init"/>
-                <include name="EnterpriseManagement.AddEmployee"/>
-                <!--<include name="BasicOperationTest.destroy"/>-->
+                <include name="Login.init"/>
+                <include name="Login.logIn"/>
+                <include name="Login.tearDown"/>
             </run>
         </groups>
         <packages>
-            <package name="com.main.*"/>
+            <package name="com.main.testcase.basic"/>
         </packages>
-        <!--<classes>-->
-            <!--<class name="com.main.testcase.EnterpriseManagementTest"/>-->
-        <!--</classes>-->
+    </test>
+    <test name="ActionOrganization" preserve-order="true">
+        <groups>
+            <run>
+                <include name="organization.Employee.init"/>
+                <include name="organization.AddEmployee"/>
+                <include name="organization.Employee.tearDown"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.main.testcase.organization"/>
+        </packages>
     </test>
 </suite>
